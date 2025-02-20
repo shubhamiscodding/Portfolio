@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 export default function Contact() {
   return (
     <>
-      <h1 className="bg-black text-4xl">Contact Me</h1>
+      <h1 className="bg-black text-4xl" id="contact">connect with me </h1>
       <div className="flex gap-6 justify-center bg-black py-6">
         <a target="_blank"
           href="https://x.com/shubham_modi_cg"

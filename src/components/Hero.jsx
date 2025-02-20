@@ -1,11 +1,8 @@
-import React, { useRef } from "react";
-import HeroImage from "../assets/hero-image.png";
-import "../index.css"; // Ensure Tailwind styles are loaded
+import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Hero = () => {
-  const contactSectionRef = useRef(null); // Reference to Contact section
-
-  // Function to smoothly scroll to the Contact section
+  const navigate = useNavigate(); // Hook for navigation
   const handleScrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -16,7 +13,8 @@ const Hero = () => {
   return (
     <div className="bg-black text-white py-16 flex items-center justify-center space-x-12 pt-52">
       {/* Profile Image */}
-      <img src="src/ph.jpg"
+      <img
+        src="src/ph.jpg"
         alt="Profile"
         className="w-80 h-80 object-cover transform 
         transition-transform duration-300 hover:scale-105 rounded-full"
@@ -25,7 +23,7 @@ const Hero = () => {
       {/* Static Text */}
       <div className="text-left">
         <h1 className="text-7xl font-bold">
-          I'm
+          I'm{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
             Shubham Modi.
           </span>
@@ -37,13 +35,19 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="mt-8 space-x-8">
+          {/* Navigate to Contact Page */}
           <button
-            onClick={handleScrollToContact}
+            onClick={handleScrollToContact} // Scroll to Contact section
             className="bg-gray-800 text-white transform transition-transform duration-300 hover:scale-110 px-5 py-3.5 rounded-md shadow-md"
           >
             Contact With Me
           </button>
-          <button className="bg-green-800 text-white transform transition-transform duration-300 hover:scale-110 px-5 py-3.5 rounded-md shadow-md">
+
+          {/* Navigate to Resume Page */}
+          <button
+            onClick={() => navigate("/resume")} // Navigate to Resume page
+            className="bg-green-800 text-white transform transition-transform duration-300 hover:scale-110 px-5 py-3.5 rounded-md shadow-md"
+          >
             Resume
           </button>
         </div>
