@@ -62,61 +62,55 @@ export default function Skills() {
   const skills = [
     {
       name: "React",
-      proficiency: 80,
+      proficiency: 70,
       icon: Code,
       description: "Building modern web applications with React and its ecosystem"
     },
     {
       name: "JavaScript",
-      proficiency: 85,
+      proficiency: 78,
       icon: Braces,
       description: "Advanced JavaScript development including ES6+ features"
     },
     {
       name: "Node.js",
-      proficiency: 80,
+      proficiency: 70,
       icon: Server,
       description: "Server-side JavaScript runtime and backend development"
     },
     {
-      name: "Express.js",
-      proficiency: 75,
-      icon: FileCode2,
-      description: "Creating robust REST APIs and web applications"
-    },
-    {
       name: "MongoDB",
-      proficiency: 85,
+      proficiency: 82,
       icon: Database,
       description: "NoSQL database design and implementation"
     },
     {
       name: "Tailwind CSS",
-      proficiency: 85,
+      proficiency: 80,
       icon: Palette,
       description: "Utility-first CSS framework for modern designs"
     },
     {
       name: "HTML5",
-      proficiency: 85,
+      proficiency: 92,
       icon: Layout,
       description: "Semantic markup and modern HTML features"
     },
     {
       name: "CSS3",
-      proficiency: 85,
+      proficiency: 75,
       icon: Globe,
       description: "Advanced styling and responsive design"
     },
     {
       name: "C++",
-      proficiency: 85,
+      proficiency: 73,
       icon: Cpu,
       description: "Object-oriented programming and algorithms"
     },
     {
       name: "Figma",
-      proficiency: 85,
+      proficiency: 75,
       icon: FigmaIcon,
       description: "UI/UX design and prototyping"
     },
@@ -128,7 +122,7 @@ export default function Skills() {
       },
       {
         name: "Deployment",
-        proficiency: 85,
+        proficiency: 75,
         icon: Server, // Replace with an appropriate deployment-related icon
         description: "Hosting and deployment of applications"
       }
