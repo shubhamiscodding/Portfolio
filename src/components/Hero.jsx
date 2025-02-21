@@ -14,7 +14,7 @@ const Hero = () => {
     <div className="bg-black text-white py-16 flex items-center justify-center space-x-12 pt-52">
       {/* Profile Image */}
       <img
-        src="src/ph.jpg"
+        src="https://res.cloudinary.com/dqhn4dq02/image/upload/v1740113553/jm7lzaefxenoz27qzxfz.jpg"
         alt="Profile"
         className="w-80 h-80 object-cover transform 
         transition-transform duration-300 hover:scale-105 rounded-full"
@@ -30,7 +30,8 @@ const Hero = () => {
         </h1>
 
         <p className="mt-4 text-lg text-gray-300">
-          I specialize in building modern and responsive web applications.
+          I specialize in building modern and responsive web applications. &&  <br />
+          i am a Marn Stack Devloper .
         </p>
 
         {/* Buttons */}
