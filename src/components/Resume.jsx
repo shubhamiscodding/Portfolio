@@ -21,15 +21,15 @@ const Resume = () => {
 
       {/* Resume PDF Embed */}
       <iframe
-        src="src/shubhammodi.pdf" // Ensure resume.pdf is in the public folder
+        src="https://drive.google.com/file/d/1oklhsTdUrqervNohScwVhvXMESaEZn81/view" // Ensure resume.pdf is in the public folder
         className="w-full max-w-4xl h-[600px] border rounded-lg shadow-lg"
         title="Resume"
       ></iframe>
 
       {/* Download Button */}
       <a
-        href="src/shubhammodi.pdf"
-        download="src/shubhammodi.pdf"
+        href="https://drive.google.com/file/d/1oklhsTdUrqervNohScwVhvXMESaEZn81/view"
+        download="https://drive.google.com/file/d/1oklhsTdUrqervNohScwVhvXMESaEZn81/view"
         className="mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition duration-300"
       >
         Download Resume
