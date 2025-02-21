@@ -5,25 +5,21 @@ const services = [
     id: 1,
     title: "Frontend Development",
     description: "Building responsive and interactive user interfaces.",
-    subject: ["React", "HTML", "CSS"],
   },
   {
     id: 2,
     title: "Backend Development",
     description: "Developing robust server-side logic and databases.",
-    subject: ["Node.js", "Express.js"],
   },
   {
     id: 3,
     title: "Database & Deployment",
     description: "Managing databases and deploying applications.",
-    subject: ["MongoDB", "Mongoose", "Render"],
   },
   {
     id: 4,
     title: "Tools & Version Control",
     description: "Using essential tools for development and collaboration.",
-    subject: ["Git", "GitHub", "Postman"],
   },
 ];
 
@@ -64,22 +60,7 @@ const Service = () => {
               >
                 <p className="mt-2 text-gray-300 text-base sm:text-lg">{service.description}</p>
 
-                <div className="mt-4">
-                  <strong className="text-green-600 text-base sm:text-lg underline decoration-blue-400">
-                    Technologies:
-                  </strong>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {service.subject.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 text-xs sm:text-sm font-semibold text-gray-100 bg-green-800 rounded-md shadow-md"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
+                
                 <button className="mt-4 text-green-400 hover:text-blue-400 transition-all">
                   Read Less
                 </button>
