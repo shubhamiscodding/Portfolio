@@ -20,11 +20,11 @@ const Resume = () => {
       <h1 className="text-4xl font-bold mb-6">My Resume</h1>
 
       {/* Resume PDF Embed */}
-      <iframe
+      <img
         src="https://res.cloudinary.com/dqhn4dq02/image/upload/v1740114838/in3byxp5pcwlingjsuby.jpg" // Ensure resume.pdf is in the public folder
-        className="w-full max-w-4xl h-[600px] border rounded-lg shadow-lg"
+        className="ax-w-4xl h-[800px] border rounded-lg shadow-lg"
         title="Resume"
-      ></iframe>
+      ></img>
 
       {/* Download Button */}
       <a
