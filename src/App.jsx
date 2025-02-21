@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom"; // Import Router and useNavigate
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import { Home, Briefcase, Phone, Code2 } from "lucide-react";
+import { Home, Briefcase, Phone, Code2, Lightbulb } from "lucide-react";
 import Hero from "./components/Hero";
 import Service from "./components/Service";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Resume from "./components/Resume"; // Import Resume page
+import Resume from "./components/Resume";
+import Skills from "./components/Skill"; // Import Skills component
 
 function App() {
   const [position, setPosition] = useState({ x: 20, y: 20 });
@@ -19,6 +20,7 @@ function App() {
   const serviceRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+  const skillsRef = useRef(null); // Add skills reference
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -66,6 +68,9 @@ function App() {
                 <div ref={serviceRef}>
                   <Service />
                 </div>
+                <div ref={skillsRef}>
+                  <Skills />
+                </div>
                 <div ref={projectsRef}>
                   <Projects />
                 </div>
@@ -93,6 +98,12 @@ function App() {
                     <Briefcase className="w-5 h-5 text-white" />
                   </button>
                   <button
+                    onClick={() => scrollToSection(skillsRef)}
+                    className="p-3 bg-gray-800 rounded-xl shadow-lg hover:bg-gray-700 transition-all"
+                  >
+                    <Lightbulb className="w-5 h-5 text-white" />
+                  </button>
+                  <button
                     onClick={() => scrollToSection(projectsRef)}
                     className="p-3 bg-gray-800 rounded-xl shadow-lg hover:bg-gray-700 transition-all"
                   >
@@ -109,7 +120,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/resume" element={<Resume />} /> {/* Add Resume Route */}
+        <Route path="/resume" element={<Resume />} />
       </Routes>
     </Router>
   );
