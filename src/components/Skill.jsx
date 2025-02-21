@@ -11,6 +11,9 @@ import {
   Cpu,
   Figma as FigmaIcon
 } from "lucide-react";
+import { GitBranch } from "lucide-react";
+
+
 
 function ProgressBar({ progress }) {
   return (
@@ -117,6 +120,19 @@ export default function Skills() {
       icon: FigmaIcon,
       description: "UI/UX design and prototyping"
     },
+    {
+        name: "Git & Github & Postman",
+        proficiency: 85,
+        icon: GitBranch,  // Replace with an actual Git-related icon
+        description: "Version control and API testing"
+      },
+      {
+        name: "Deployment",
+        proficiency: 85,
+        icon: Server, // Replace with an appropriate deployment-related icon
+        description: "Hosting and deployment of applications"
+      }
+      
   ];
 
   return (
