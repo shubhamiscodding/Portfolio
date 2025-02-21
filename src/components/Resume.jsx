@@ -21,7 +21,7 @@ const Resume = () => {
 
       {/* Resume PDF Embed */}
       <iframe
-        src="https://drive.google.com/file/d/1oklhsTdUrqervNohScwVhvXMESaEZn81/view" // Ensure resume.pdf is in the public folder
+        src="https://res.cloudinary.com/dqhn4dq02/image/upload/v1740114838/in3byxp5pcwlingjsuby.jpg" // Ensure resume.pdf is in the public folder
         className="w-full max-w-4xl h-[600px] border rounded-lg shadow-lg"
         title="Resume"
       ></iframe>
