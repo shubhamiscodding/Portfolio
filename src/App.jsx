@@ -53,7 +53,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="box-content">
+            <div className="box-content overflow-x-hidden">
               <div
                 className="min-h-screen bg-gray-900 text-white"
                 onMouseMove={handleMouseMove}
