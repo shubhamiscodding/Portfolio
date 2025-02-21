@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react"
 
 const projects = [
   {
@@ -29,7 +29,8 @@ const projects = [
     id: 4,
     name: "Youtube",
     technologies: ["React", "Api"],
-    image: "https://imgs.search.brave.com/pzcPM4fWUSpHnB1T5eWdnsjNVqN8kxUmOBus_89VKN0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YXByb3h5LnNhbG9u/LmNvbS93aWR0aC8x/MjAwL2h0dHBzOi8v/bWVkaWEyLnNhbG9u/LmNvbS8yMDI1LzAy/L3lvdXR1YmVfbG9n/b19pc19kaXNwbGF5/ZWRfb25fYV9tb2Jp/bGVfcGhvbmVfMTI0/Njk3Mjg0MS5qcGc",
+    image:
+      "https://imgs.search.brave.com/pzcPM4fWUSpHnB1T5eWdnsjNVqN8kxUmOBus_89VKN0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YXByb3h5LnNhbG9u/LmNvbS93aWR0aC8x/MjAwL2h0dHBzOi8v/bWVkaWEyLnNhbG9u/LmNvbS8yMDI1LzAy/L3lvdXR1YmVfbG9n/b19pc19kaXNwbGF5/ZWRfb25fYV9tb2Jp/bGVfcGhvbmVfMTI0/Njk3Mjg0MS5qcGc",
     github: "https://github.com/shubhamiscodding/spotify-with-react/tree/main/you-vite-react",
     deployed: "https://youtube-frontend-ch16.onrender.com",
   },
@@ -41,63 +42,70 @@ const projects = [
     github: "https://github.com/shubhamiscodding/podbeanclon",
     deployed: "https://podbeanclon.onrender.com/",
   },
-];
+]
 
 const figmaProjects = [
   {
     id: 1,
     name: " Finctrl ",
-    technologies: ["Figma" , "Simple UI"],
+    technologies: ["Figma", "Simple UI"],
     image: "https://res.cloudinary.com/dqhn4dq02/image/upload/v1738918889/c8sw0fobwfaa0yzwcu2a.png",
     figmaLink: "https://www.figma.com/proto/DNBtQzukvRqvlJOR15WNiD/FINAL-PROJECT?node-id=165-316&t=IJSgkeDiJ1yPqsuJ-1",
   },
   {
     id: 2,
     name: " smellwell ",
-    technologies: ["Figma" , " Simple UI" , "Prototyping"],
-    image: "https://imgs.search.brave.com/ELfHBTs87TF2P24kqZI3_46dZHTAEFr2ute2byxK3Zw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmFtZWJyYW5kc3Bl/cmZ1bWUuY29tL2lt/YWdlcy93ZWxjb21l/LmpwZw",
-    figmaLink: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?page-id=218%3A73&node-id=227-440&viewport=588%2C159%2C0.11&t=IH2rnykLPCUofh1R-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=227%3A440",
+    technologies: ["Figma", " Simple UI", "Prototyping"],
+    image:
+      "https://imgs.search.brave.com/ELfHBTs87TF2P24kqZI3_46dZHTAEFr2ute2byxK3Zw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmFtZWJyYW5kc3Bl/cmZ1bWUuY29tL2lt/YWdlcy93ZWxjb21l/LmpwZw",
+    figmaLink:
+      "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?page-id=218%3A73&node-id=227-440&viewport=588%2C159%2C0.11&t=IH2rnykLPCUofh1R-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=227%3A440",
   },
   {
     id: 3,
     name: " cricknews ",
-    technologies: ["Figma" , "Prototyping"],
-    image: "https://imgs.search.brave.com/hvUAlclO2Pq5ixG3UC93dXKraejWOu-SLSrSbuk9MzE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/LmNvbS9pbWFnZS1j/ZG4vaW1hZ2VzL2t0/czkyOHBkL3Byb2R1/Y3Rpb24vNzI5ZWYy/OTliNjI4ZTZmNDBk/ODViMmI2YWM2OWEy/ZWMyNTE2MmYwZi03/MzF4NzMxLnBuZz93/PTEwODAmcT03MiZm/bT13ZWJw",
-    figmaLink: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?node-id=90-400&t=uwCXGdlQ3AxLspQy-1",
+    technologies: ["Figma", "Prototyping"],
+    image:
+      "https://imgs.search.brave.com/hvUAlclO2Pq5ixG3UC93dXKraejWOu-SLSrSbuk9MzE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/LmNvbS9pbWFnZS1j/ZG4vaW1hZ2VzL2t0/czkyOHBkL3Byb2R1/Y3Rpb24vNzI5ZWYy/OTliNjI4ZTZmNDBk/ODViMmI2YWM2OWEy/ZWMyNTE2MmYwZi03/MzF4NzMxLnBuZz93/PTEwODAmcT03MiZm/bT13ZWJw",
+    figmaLink:
+      "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?node-id=90-400&t=uwCXGdlQ3AxLspQy-1",
   },
   {
     id: 4,
     name: " instagram ",
-    technologies: ["Figma" , "Prototyping"],
-    image: "https://imgs.search.brave.com/gPZT1daGnqAjIB8yW5fG0cUuGqNhb3ZbYQqVY8Gy6S8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi85Lzk1L0lu/c3RhZ3JhbV9sb2dv/XzIwMjIuc3ZnLzIy/MHB4LUluc3RhZ3Jh/bV9sb2dvXzIwMjIu/c3ZnLnBuZw",
-    figmaLink: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?node-id=43-87&t=uwCXGdlQ3AxLspQy-1",
+    technologies: ["Figma", "Prototyping"],
+    image:
+      "https://imgs.search.brave.com/gPZT1daGnqAjIB8yW5fG0cUuGqNhb3ZbYQqVY8Gy6S8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi85Lzk1L0lu/c3RhZ3JhbV9sb2dv/XzIwMjIuc3ZnLzIy/MHB4LUluc3RhZ3Jh/bV9sb2dvXzIwMjIu/c3ZnLnBuZw",
+    figmaLink:
+      "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?node-id=43-87&t=uwCXGdlQ3AxLspQy-1",
   },
   {
     id: 5,
     name: " one page social media uniqe design ",
     technologies: ["Figma"],
     image: "https://res.cloudinary.com/dqhn4dq02/image/upload/v1740113499/hinsjwtehr2aoxyj0f0s.png",
-    figmaLink: "https://www.figma.com/proto/1rN6JDvA6MVeTwyABaoaHO/EXAM-BUT-UNIQE-IDEA?page-id=0%3A1&node-id=2-2&p=f&viewport=500%2C484%2C0.63&t=YXlQOTdePAZgLyKv-1&scaling=min-zoom&content-scaling=fixed",
+    figmaLink:
+      "https://www.figma.com/proto/1rN6JDvA6MVeTwyABaoaHO/EXAM-BUT-UNIQE-IDEA?page-id=0%3A1&node-id=2-2&p=f&viewport=500%2C484%2C0.63&t=YXlQOTdePAZgLyKv-1&scaling=min-zoom&content-scaling=fixed",
   },
-];
+]
 
-const placeholderImage = "https://via.placeholder.com/300x200?text=No+Image+Available";
+const placeholderImage = "https://via.placeholder.com/300x200?text=No+Image+Available"
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [activeTab, setActiveTab] = useState("development");
+  const [selectedProject, setSelectedProject] = useState(null)
+  const [activeTab, setActiveTab] = useState("development")
 
   const openModal = (project) => {
-    setSelectedProject(project);
-  };
+    setSelectedProject(project)
+  }
 
   const closeModal = () => {
-    setSelectedProject(null);
-  };
+    setSelectedProject(null)
+  }
 
   return (
     <div className="bg-black text-white py-20" id="project">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
         <h2 className="text-5xl font-bold text-center mb-10 text-gray-100">My Projects</h2>
 
         {/* Dropdown for Selecting Development or Figma Projects */}
@@ -114,27 +122,25 @@ const Projects = () => {
 
         {/* Render Development Projects */}
         {activeTab === "development" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-gray-900 p-6 rounded-lg shadow-lg border border-gray-800 
-                hover:shadow-xl transform transition-all duration-500 hover:scale-105 cursor-pointer"
+                className="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-lg border border-gray-800 hover:shadow-xl transform transition-all duration-500 hover:scale-105 cursor-pointer"
                 onClick={() => openModal(project)}
               >
                 <img
                   src={project.image || placeholderImage}
                   alt={project.name}
-                  className="rounded-lg mb-4 w-full h-48 object-fill shadow-md"
+                  className="rounded-lg mb-4 w-full h-40 sm:h-48 object-cover shadow-md"
                 />
-                <h3 className="text-2xl font-semibold text-gray-100">{project.name}</h3>
-                <p className="text-gray-400 mt-2 text-lg">Click to view technologies</p>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-100">{project.name}</h3>
+                <p className="text-gray-400 mt-2 text-base sm:text-lg">Click to view technologies</p>
 
-                <div className="mt-6 flex gap-5">
+                <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <a
                     href={project.github}
-                    className="px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 
-                    text-white rounded-full shadow-md transition-transform transform hover:scale-105"
+                    className="px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full shadow-md transition-transform transform hover:scale-105 text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -144,8 +150,7 @@ const Projects = () => {
 
                   <a
                     href={project.deployed}
-                    className="px-4 py-2 bg-gradient-to-r from-blue-500 to-green-500 
-                    text-white rounded-full shadow-md transition-transform transform hover:scale-105"
+                    className="px-4 py-2 bg-gradient-to-r from-blue-500 to-green-500 text-white rounded-full shadow-md transition-transform transform hover:scale-105 text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -160,27 +165,25 @@ const Projects = () => {
 
         {/* Render Figma Projects */}
         {activeTab === "figma" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {figmaProjects.map((project) => (
               <div
                 key={project.id}
-                className="bg-gray-900 p-6 rounded-lg shadow-lg border border-gray-800 
-                hover:shadow-xl transform transition-all duration-500 hover:scale-105 cursor-pointer"
+                className="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-lg border border-gray-800 hover:shadow-xl transform transition-all duration-500 hover:scale-105 cursor-pointer"
                 onClick={() => openModal(project)}
               >
                 <img
                   src={project.image || placeholderImage}
                   alt={project.name}
-                  className="rounded-lg mb-4 w-full h-48 object-fill shadow-md"
+                  className="rounded-lg mb-4 w-full h-40 sm:h-48 object-cover shadow-md"
                 />
-                <h3 className="text-2xl font-semibold text-gray-100">{project.name}</h3>
-                <p className="text-gray-400 mt-2 text-lg">Click to view details</p>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-100">{project.name}</h3>
+                <p className="text-gray-400 mt-2 text-base sm:text-lg">Click to view details</p>
 
-                <div className="mt-6 flex gap-5">
+                <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <a
                     href={project.figmaLink}
-                    className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 
-                    text-white rounded-full shadow-md transition-transform transform hover:scale-105"
+                    className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-md transition-transform transform hover:scale-105 text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -197,7 +200,7 @@ const Projects = () => {
       {/* Modal */}
       {selectedProject && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
-          <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 bg-opacity-90 backdrop-blur-lg border border-gray-700 text-white p-8 rounded-2xl w-96 shadow-2xl transform transition-all duration-300 scale-100">
+          <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 bg-opacity-90 backdrop-blur-lg border border-gray-700 text-white p-4 sm:p-6 md:p-8 rounded-2xl w-11/12 max-w-md shadow-2xl transform transition-all duration-300 scale-100">
             <button
               onClick={closeModal}
               className="absolute top-3 right-3 text-gray-300 hover:text-red-500 transition duration-300 text-2xl"
@@ -205,17 +208,19 @@ const Projects = () => {
               &times;
             </button>
 
-            <h2 className="text-4xl font-extrabold text-center text-blue-400">{selectedProject.name}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-blue-400">
+              {selectedProject.name}
+            </h2>
 
             {/* Technologies or technologies */}
             {selectedProject.technologies ? (
               <>
-                <p className="mt-4 text-lg text-gray-300 text-center">Technologies Used:</p>
+                <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-300 text-center">Technologies Used:</p>
                 <ul className="mt-4 space-y-3">
                   {selectedProject.technologies.map((tech, index) => (
                     <li
                       key={index}
-                      className="bg-gray-700 px-4 py-2 rounded-lg text-center text-gray-100 shadow-md transition-transform transform hover:scale-105"
+                      className="bg-gray-700 px-3 py-1 sm:px-4 sm:py-2 rounded-lg text-center text-sm sm:text-base text-gray-100 shadow-md transition-transform transform hover:scale-105"
                     >
                       {tech}
                     </li>
@@ -236,7 +241,7 @@ const Projects = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
