@@ -43,9 +43,6 @@ function SkillCard({ name, proficiency, icon: Icon, description }) {
               {name}
             </h3>
           </div>
-          <span className="text-sm font-medium text-teal-400">
-            {proficiency}%
-          </span>
         </div>
         
         <ProgressBar progress={proficiency} />
