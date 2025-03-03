@@ -8,6 +8,7 @@ const projects = [
     image: "https://res.cloudinary.com/dqhn4dq02/image/upload/v1738918889/c8sw0fobwfaa0yzwcu2a.png",
     github: "https://github.com/shubhamiscodding/Fin_Ctrl",
     deployed: "https://fin-ctrl-frontend-1.onrender.com",
+    video: "https://res.cloudinary.com/dqhn4dq02/video/upload/v1740999850/p5ditex5ags07kvajspz.mp4",
   },
   {
     id: 2,
@@ -211,6 +212,20 @@ const Projects = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-blue-400">
               {selectedProject.name}
             </h2>
+
+            {selectedProject.video && selectedProject.id === 1 && (
+              <div className="mt-4 aspect-video w-full">
+                <video
+                  src={selectedProject.video}
+                  className="w-full h-full rounded-lg shadow-lg"
+                  title={`${selectedProject.name} Demo Video`}
+                  controls
+                  autoPlay
+                  muted
+                  playsInline
+                ></video>
+              </div>
+            )}
 
             {/* Technologies or technologies */}
             {selectedProject.technologies ? (
