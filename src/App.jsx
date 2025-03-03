@@ -81,7 +81,7 @@ function App() {
 
                 {/* Draggable Navigation */}
                 <div
-                  className="fixed cursor-move z-50 flex bg-gray-900 items-center gap-4 p-3"
+                  className="fixed cursor-move z-50 flex bg-black items-center gap-4 p-3 rounded-xl shadow-lg"
                   style={{ left: `${position.x}px`, top: `${position.y}px` }}
                   onMouseDown={handleMouseDown}
                 >
