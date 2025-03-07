@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import { Mail } from "lucide-react";
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { ArrowDown, Download, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Hero = () => {
   const navigate = useNavigate();
-  
+
   const handleScrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -49,7 +50,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left content */}
-          <motion.div 
+          <motion.div
             className="lg:w-1/2 text-center lg:text-left"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,8 +64,8 @@ const Hero = () => {
             >
               <span className="text-gray-300 font-medium">Full Stack Developer</span>
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +76,7 @@ const Hero = () => {
                 Shubham Modi
               </span>
             </motion.h1>
-            
+
             <motion.div
               className="text-xl md:text-2xl text-gray-300 mb-8 h-16"
               initial={{ opacity: 0 }}
@@ -98,34 +99,41 @@ const Hero = () => {
                 repeat={Infinity}
               />
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
             >
-              <motion.a 
-                href="https://github.com" 
-                target="_blank" 
+              <motion.a
+                href="mailto:shubham.modi.cg@gmail.com"
+                className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110 text-white"
+                whileHover={{ y: -5 }}
+              >
+                <Mail size={24} />
+              </motion.a>
+              <motion.a
+                href="https://github.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110"
                 whileHover={{ y: -5 }}
               >
                 <Github size={24} className="text-gray-300" />
               </motion.a>
-              <motion.a 
-                href="https://linkedin.com" 
-                target="_blank" 
+              <motion.a
+                href="https://linkedin.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110"
                 whileHover={{ y: -5 }}
               >
                 <Linkedin size={24} className="text-gray-300" />
               </motion.a>
-              <motion.a 
-                href="https://twitter.com" 
-                target="_blank" 
+              <motion.a
+                href="https://twitter.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-all duration-300 hover:scale-110"
                 whileHover={{ y: -5 }}
@@ -133,8 +141,8 @@ const Hero = () => {
                 <Twitter size={24} className="text-gray-300" />
               </motion.a>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -148,7 +156,7 @@ const Hero = () => {
               >
                 Contact Me
               </motion.button>
-              
+
               <motion.button
                 onClick={() => navigate("/resume")}
                 className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-400 text-white rounded-lg font-medium shadow-lg shadow-green-500/20 hover:shadow-green-500/40 transition-all duration-300 flex items-center justify-center"
@@ -159,9 +167,9 @@ const Hero = () => {
               </motion.button>
             </motion.div>
           </motion.div>
-          
+
           {/* Right content - Profile image */}
-          <motion.div 
+          <motion.div
             className="lg:w-1/2 flex justify-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -169,34 +177,34 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Animated rings */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 rounded-full border-2 border-blue-500/20"
-                animate={{ 
+                animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.5, 0.8, 0.5],
                 }}
-                transition={{ 
+                transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
               />
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 rounded-full border-2 border-green-400/20"
-                animate={{ 
+                animate={{
                   scale: [1.1, 1, 1.1],
                   opacity: [0.5, 0.8, 0.5],
                 }}
-                transition={{ 
+                transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
               />
-              
+
               {/* Glowing effect */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-green-400 rounded-full blur-xl opacity-20"></div>
-              
+
               {/* Profile image */}
               <motion.div
                 className="relative"
@@ -208,44 +216,44 @@ const Hero = () => {
                   alt="Shubham Modi"
                   className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-gray-800 shadow-2xl z-10"
                 />
-                
+
                 {/* Tech stack icons positioned around the image */}
-                <motion.div 
+                <motion.div
                   className="absolute -top-4 -right-4 bg-gray-800 p-2 rounded-full shadow-lg"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" className="w-8 h-8" alt="React" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="absolute top-1/4 -right-8 bg-gray-800 p-2 rounded-full shadow-lg"
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity }}
                 >
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" className="w-8 h-8" alt="Node.js" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="absolute bottom-1/4 -right-4 bg-gray-800 p-2 rounded-full shadow-lg"
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" className="w-8 h-8" alt="MongoDB" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="absolute -bottom-4 -right-4 bg-gray-800 p-2 rounded-full shadow-lg"
                   animate={{ y: [0, 8, 0] }}
                   transition={{ duration: 2.2, repeat: Infinity }}
                 >
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" className="w-8 h-8 brightness-200" alt="Express" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="absolute -bottom-4 left-1/4 bg-gray-800 p-2 rounded-full shadow-lg"
                   animate={{ y: [0, -12, 0] }}
                   transition={{ duration: 2.8, repeat: Infinity }}
                 >
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" className="w-8 h-8" alt="JavaScript" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="absolute bottom-1/4 -left-4 bg-gray-800 p-2 rounded-full shadow-lg"
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 2.3, repeat: Infinity }}
@@ -256,9 +264,9 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        
+
         {/* Scroll down indicator */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
