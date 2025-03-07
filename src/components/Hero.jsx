@@ -250,7 +250,7 @@ const Hero = () => {
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 2.3, repeat: Infinity }}
                 >
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" className="w-8 h-8" alt="Tailwind CSS" />
+                  <img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" className="w-8 h-8" alt="Tailwind CSS" />
                 </motion.div>
               </motion.div>
             </div>
