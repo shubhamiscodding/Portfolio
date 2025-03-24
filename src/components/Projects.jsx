@@ -123,7 +123,7 @@ const Projects = () => {
   useEffect(() => {
     if (videoFinished) {
       const interval = setInterval(() => {
-        setCurrentIndex((prev) => 
+        setCurrentIndex((prev) =>
           prev + projectsToShow >= activeProjects.length ? 0 : prev + 1
         );
       }, 5000); // Change slide every 5 seconds
@@ -147,8 +147,8 @@ const Projects = () => {
   };
 
   return (
-    <section 
-      id="project" 
+    <section
+      id="project"
       className="relative min-h-screen py-20 bg-gradient-to-b from-gray-900 via-gray-800 to-black overflow-hidden"
     >
       {/* Animated background elements */}
@@ -182,7 +182,7 @@ const Projects = () => {
       </div>
 
       <div className="container mx-auto px-6 z-10">
-        <motion.h2 
+        <motion.h2
           className="text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-400"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -288,11 +288,10 @@ const Projects = () => {
               {Array(Math.ceil(activeProjects.length / projectsToShow)).fill().map((_, i) => (
                 <motion.div
                   key={i}
-                  className={`w-2 h-2 rounded-full ${
-                    Math.floor(currentIndex / projectsToShow) === i 
-                      ? 'bg-gradient-to-r from-blue-500 to-green-400' 
+                  className={`w-2 h-2 rounded-full ${Math.floor(currentIndex / projectsToShow) === i
+                      ? 'bg-gradient-to-r from-blue-500 to-green-400'
                       : 'bg-gray-600'
-                  }`}
+                    }`}
                   whileHover={{ scale: 1.3 }}
                   onClick={() => setCurrentIndex(i * projectsToShow)}
                 />
@@ -304,13 +303,13 @@ const Projects = () => {
 
       {/* Modal */}
       {selectedProject && (
-        <motion.div 
+        <motion.div
           className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <motion.div 
+          <motion.div
             className="relative bg-gradient-to-br from-gray-800 to-gray-900/95 backdrop-blur-lg border border-gray-700/50 text-white p-8 rounded-2xl w-11/12 max-w-3xl shadow-2xl"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -335,14 +334,16 @@ const Projects = () => {
                 <video
                   src={selectedProject.video}
                   className="w-full h-full"
-                  controls  // Only show controls after first play
+                  controls
                   autoPlay
-                  muted // Mute on first automatic play
+                  muted
                   playsInline
                   onEnded={handleVideoEnded}
+                  onLoadedMetadata={(e) => e.target.playbackRate = 2.0} // Set speed to 2X
                 />
               </div>
             )}
+
 
             <div className="mt-6">
               <p className="text-gray-300 text-center mb-4">Technologies Used:</p>
