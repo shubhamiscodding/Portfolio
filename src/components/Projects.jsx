@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { Github, ArrowLeft, ArrowRight, Moon, Sun } from "lucide-react";
@@ -185,7 +183,7 @@ const ProjectShowcase = () => {
     <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-20 py-20">
       <h2 className="text-3xl font-bold text-center mb-8 text-black dark:text-white">Carousel Showcase</h2>
       <div className="flex justify-center mb-12">
-        <div className="inline-flex rounded-xl bg-gray-100 dark:bg-neutral-800 p-1 shadow-lg w-screen">
+        <div className="inline-flex rounded-xl p-1 shadow-lg w-screen">
           <motion.button
             className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 w-[50%] ${category === "development"
               ? "bg-white dark:bg-neutral-900 text-blue-600 dark:text-blue-400 shadow-md"
@@ -345,11 +343,228 @@ const ProjectShowcase = () => {
   );
 };
 
+const NormalShowcase = () => {
+  const [activeTab, setActiveTab] = useState("development");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState(null);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
+  const activeProjects = activeTab === "development" ? projects : figmaProjects;
+  const projectsToShow = 3; // Number of projects visible at once
+
+  // Auto-slide effect
+  useEffect(() => {
+    if (!isPlaying) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) =>
+          prev + projectsToShow >= activeProjects.length ? 0 : prev + 1
+        );
+      }, 5000); // Change slide every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [activeTab, activeProjects.length, isPlaying]);
+
+  const handleVideoPlay = (projectId) => {
+    setIsPlaying(true);
+    setCurrentVideo(projectId);
+    setShowVideoModal(true);
+  };
+
+  const handleVideoPause = () => {
+    setIsPlaying(false);
+    setCurrentVideo(null);
+    setShowVideoModal(false);
+  };
+
+  const cardVariants = {
+    initial: { opacity: 0, x: 50 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -50 },
+    hover: { scale: 1.05, transition: { duration: 0.3 } }
+  };
+
+  return (
+    <section
+      id="project"
+      className="relative min-h-screen py-20 overflow-hidden"
+    >
+      <div className="container mx-auto px-6 z-10">
+        <motion.h2
+          className="text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-400"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          My Projects
+        </motion.h2>
+
+        {/* Tab Selection */}
+        <div className="flex justify-center mb-12">
+          <motion.select
+            className="px-6 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 text-gray-300 rounded-full shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 transition-all duration-300"
+            onChange={(e) => setActiveTab(e.target.value)}
+            value={activeTab}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <option value="development">Development Projects</option>
+            <option value="figma">Figma Designs</option>
+          </motion.select>
+        </div>
+
+        {/* Carousel Container */}
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex gap-8"
+            animate={{
+              x: `-${currentIndex * (100 / projectsToShow)}%`,
+            }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            {activeProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={cardVariants}
+                whileHover="hover"
+                className="flex-shrink-0 w-full md:w-1/3 relative bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer"
+                onClick={() => project.video && handleVideoPlay(project.id)}
+              >
+                <div className="relative overflow-hidden rounded-lg mb-4">
+                  {project.video ? (
+                    <div className="relative">
+                      <video
+                        src={project.video}
+                        className="w-full h-48 object-cover transform transition-transform duration-500 hover:scale-110"
+                        muted
+                        playsInline
+                        loop
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                        <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                          <svg
+                            className="w-6 h-6 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <img
+                      src={project.image || placeholderImage}
+                      alt={project.name}
+                      className="w-full h-48 object-cover transform transition-transform duration-500 hover:scale-110"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent" />
+                </div>
+
+                <h3 className="text-xl font-semibold text-gray-100 mb-2">{project.name}</h3>
+                <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+
+                <div className="flex flex-wrap gap-3" onClick={(e) => e.stopPropagation()}>
+                  {project.github && (
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-3 py-1.5 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16} className="mr-1" /> GitHub
+                    </motion.a>
+                  )}
+                  {project.deployed && (
+                    <motion.a
+                      href={project.deployed}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 bg-gradient-to-r from-green-600 to-green-400 text-white rounded-lg shadow-lg shadow-green-500/20 hover:shadow-green-500/40 transition-all duration-300 text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Live
+                    </motion.a>
+                  )}
+                  {project.figmaLink && (
+                    <motion.a
+                      href={project.figmaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-purple-400 text-white rounded-lg shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300 text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Figma
+                    </motion.a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {Array(Math.ceil(activeProjects.length / projectsToShow)).fill().map((_, i) => (
+              <motion.div
+                key={i}
+                className={`w-2 h-2 rounded-full ${Math.floor(currentIndex / projectsToShow) === i
+                    ? 'bg-gradient-to-r from-blue-500 to-green-400'
+                    : 'bg-gray-600'
+                  }`}
+                whileHover={{ scale: 1.3 }}
+                onClick={() => setCurrentIndex(i * projectsToShow)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Video Modal */}
+      {showVideoModal && (
+        <motion.div
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="relative w-full max-w-4xl mx-4"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+          >
+            <button
+              onClick={handleVideoPause}
+              className="absolute -top-10 right-0 text-white hover:text-red-500 transition duration-300 text-2xl"
+            >
+              ×
+            </button>
+            <video
+              src={activeProjects.find(p => p.id === currentVideo)?.video}
+              className="w-full rounded-lg shadow-2xl"
+              controls
+              autoPlay
+              playsInline
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </section>
+  );
+};
+
 const Projects = () => {
   return (
     <div className="min-h-screen">
       <ProjectShowcase />
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+      <NormalShowcase />
+      <div className="min-h-screen transition-colors duration-300">
       </div>
     </div>
   );
